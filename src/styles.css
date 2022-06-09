@@ -1,1 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+}
+.d-none{
+  display: none!important;
+}
+/*#FF9B1B*/
+.form-feedback{
+  color: tomato;
+  font-size: 1.2rem;
+  margin-top: .5rem;
+}
+.link-action{
+  color: #FF9B1B;
+}
+.btn{
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.btn-primary{
+  background-color: #FF9B1B;
+  color: white;
+  padding: .5rem 1rem;
+  margin-top: 1.5rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.form-group label {
+  font-size: 1.6rem;
+  margin-bottom: .5rem;
+  color: rgba(220, 220, 220, 0.278);
+}
+.form-control {
+  padding: .5rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: 1px solid rgba(220, 220, 220, 0.15);
+  color: gainsboro;
+}
+.form-control:focus {
+  outline: none;
+}
+.form-control::placeholder {
+  color: rgba(220, 220, 220, 0.272);
+  font-size: 1.5rem;
+}
+.form-title {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+  color: gainsboro;
+}
+.action-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 1rem;
+}

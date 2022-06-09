@@ -1,0 +1,32 @@
+<form class="form-signup">
+    <div class="form-signup-heading">
+      <img src="./../../../assets/logoRift.png" alt="">
+      <h2 class="form-title">Registar</h2>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Degite seu email">
+      <div class="form-feedback"></div>
+    </div>
+    <div class="form-group">
+      <label for="email">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Novo Password">
+      <div class="form-feedback"></div>
+    </div>
+    <div class="form-group">
+      <label for="email">Confirmar Password</label>
+      <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirmar">
+      <div class="form-feedback"></div>
+    </div>
+    <div class="action-link">
+      <span class="label-action">
+        Já tenho uma conta:
+        <a routerLink="/login" class="link-action">
+          realizar login
+        </a>
+      </span>
+      <a routerLink="/forgot" class="label-action link-action">esqueci o password</a>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+

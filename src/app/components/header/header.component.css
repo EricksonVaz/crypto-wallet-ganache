@@ -1,0 +1,28 @@
+.main-nav {
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: #050c1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-container{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.action-btn{
+  background-color: transparent;
+  border: 1px solid gainsboro;
+  padding: 1rem 1.2rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.action-btn img{
+  width: 30px;
+}
+.container-action{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

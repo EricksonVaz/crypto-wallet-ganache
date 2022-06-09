@@ -1,0 +1,10 @@
+<div class="account-container">
+  <div class="account-card">
+      <span>&plus;</span>
+  </div>
+  <div class="account-card" *ngFor="let acount of listAccounts">
+      <span class="label-name-account">{{acount.name}}</span>
+      <span class="label-address">{{acount.address}}</span>
+      <button type="button" class="btn btn-clip">Copiar</button>
+  </div>
+</div>
