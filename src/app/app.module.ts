@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { AccountsContainerComponent } from './components/accounts-container/accounts-container.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
+import { AccountTransactionsComponent } from './components/account-transactions/account-transactions.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AccountDetailsComponent } from './components/account-details/account-de
     ForgotPasswordComponent,
     HeaderComponent,
     AccountsContainerComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    AccountTransactionsComponent
   ],
   imports: [
     BrowserModule,

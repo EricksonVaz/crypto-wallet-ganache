@@ -3,3 +3,8 @@
   margin: 1rem auto;
   padding: 1rem;
 }
+@media all and (max-width:940px){
+  .main-content{
+    width: 100%;
+  }
+}
