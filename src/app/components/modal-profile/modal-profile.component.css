@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 2;
+  border-radius: 5px;
+  padding: 1rem;
+  color: #0F1932;
+}
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-header .close{
+  font-size: 4rem;
+  cursor: pointer;
+}
+.modal-title{
+  font-size: 2rem;
+}
+.form-group label{
+  color: #0F1932;
+}
+.form-control{
+  border: 1px solid gainsboro;
+  color: #0F1932;
+}
+.form-control::placeholder{
+  color: #0F1932;
+}

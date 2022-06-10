@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Output('openModalProfile') openModalProfile = new EventEmitter();
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.router.navigateByUrl('login');
+  }
+
+  openModal(){
+    this.openModalProfile.emit();
   }
 
 }

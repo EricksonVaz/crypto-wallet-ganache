@@ -1,6 +1,8 @@
-<app-header></app-header>
+<app-header (openModalProfile)="openModalProfile()"></app-header>
 <main class="main-content">
   <app-accounts-container></app-accounts-container>
   <app-account-details></app-account-details>
   <app-account-transactions></app-account-transactions>
 </main>
+<app-backdrop-modal [isOpen]="openBackdrop"></app-backdrop-modal>
+<app-modal-profile [isOpen]="openProfile" (closeModal)="closeModalProfile()"></app-modal-profile>

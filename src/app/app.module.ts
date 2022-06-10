@@ -17,6 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { AccountsContainerComponent } from './components/accounts-container/accounts-container.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { AccountTransactionsComponent } from './components/account-transactions/account-transactions.component';
+import { BackdropModalComponent } from './components/backdrop-modal/backdrop-modal.component';
+import { ModalProfileComponent } from './components/modal-profile/modal-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AccountTransactionsComponent } from './components/account-transactions/
     HeaderComponent,
     AccountsContainerComponent,
     AccountDetailsComponent,
-    AccountTransactionsComponent
+    AccountTransactionsComponent,
+    BackdropModalComponent,
+    ModalProfileComponent
   ],
   imports: [
     BrowserModule,
