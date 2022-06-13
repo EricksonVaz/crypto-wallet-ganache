@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 @Injectable({
   providedIn: 'root'
 })
-export class UserLoggedGuard implements CanActivate {
+export class UserNotLoggedGuard implements CanActivate {
   constructor(private router:Router){}
 
   canActivate(
@@ -15,10 +15,10 @@ export class UserLoggedGuard implements CanActivate {
       const auth = getAuth();
       const user = auth.currentUser;
 
-      if (user) return true;
+      return true;
 
-      this.router.navigateByUrl('/login');
-      return false;
+      // this.router.navigateByUrl('/panel');
+      // return false;
   }
 
 }
