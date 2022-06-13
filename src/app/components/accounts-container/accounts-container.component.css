@@ -20,6 +20,9 @@
   justify-content: center;
   cursor: pointer;
 }
+.account-card.select{
+  border-color: #F7931A;
+}
 
 .label-name-account{
   font-size: 1.8rem;

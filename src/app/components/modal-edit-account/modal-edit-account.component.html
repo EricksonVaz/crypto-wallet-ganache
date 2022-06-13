@@ -1,0 +1,18 @@
+<div class="modal" [hidden]="!isOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Editar Conta</h2>
+      <span class="close" (click)="close()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form class="form-container form-update=profile">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Degite um nome para a conta">
+          <div class="form-feedback"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </form>
+    </div>
+</div>
+

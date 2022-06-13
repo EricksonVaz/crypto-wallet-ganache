@@ -6,15 +6,15 @@
     <div class="details-info">
         <div class="account-name">
             <span class="label-name">Account 1</span>
-            <button type="button" class="btn btn-edit">
+            <button type="button" class="btn btn-edit" (click)="openModalEdit()">
                 <img src="../../../assets/edit.png" alt="">
             </button>
         </div>
         <div class="account-id">0x5e37572E107a30A37bB973ECffcf7C004B88cc8C</div>
-        <button type="button" class="btn btn-primry-key">Obter chave primaria</button>
+        <button type="button" class="btn btn-primry-key" (click)="openModalKey()">Obter chave primaria</button>
     </div>
     <div class="account-actions">
       <button type="button" class="btn btn-action">Comprar</button>
-      <button type="button" class="btn btn-action">Transferir</button>
+      <button type="button" class="btn btn-action" (click)="openModalTrans()">Transferir</button>
     </div>
 </div>

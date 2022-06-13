@@ -19,6 +19,11 @@ import { AccountDetailsComponent } from './components/account-details/account-de
 import { AccountTransactionsComponent } from './components/account-transactions/account-transactions.component';
 import { BackdropModalComponent } from './components/backdrop-modal/backdrop-modal.component';
 import { ModalProfileComponent } from './components/modal-profile/modal-profile.component';
+import { ModalAddAccountComponent } from './components/modal-add-account/modal-add-account.component';
+import { ModalEditAccountComponent } from './components/modal-edit-account/modal-edit-account.component';
+import { ModalDetailsTransComponent } from './components/modal-details-trans/modal-details-trans.component';
+import { ModalGetPrivateKeyComponent } from './components/modal-get-private-key/modal-get-private-key.component';
+import { ModalTransferComponent } from './components/modal-transfer/modal-transfer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { ModalProfileComponent } from './components/modal-profile/modal-profile.
     AccountDetailsComponent,
     AccountTransactionsComponent,
     BackdropModalComponent,
-    ModalProfileComponent
+    ModalProfileComponent,
+    ModalAddAccountComponent,
+    ModalEditAccountComponent,
+    ModalDetailsTransComponent,
+    ModalGetPrivateKeyComponent,
+    ModalTransferComponent
   ],
   imports: [
     BrowserModule,

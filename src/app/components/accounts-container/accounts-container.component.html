@@ -1,10 +1,10 @@
 <div class="account-container">
-  <div class="account-card">
+  <div class="account-card" (click)="openModalAddNewAccount()">
       <span>&plus;</span>
   </div>
-  <div class="account-card" *ngFor="let acount of listAccounts">
+  <div class="account-card" *ngFor="let acount of listAccounts;index as i" #cardItem (click)="selectAccount(cardItem)">
       <span class="label-name-account">{{acount.name}}</span>
-      <span class="label-address">{{acount.address}}</span>
-      <button type="button" class="btn btn-clip">Copiar</button>
+      <span class="label-address" #address>{{acount.address}}</span>
+      <button type="button" class="btn btn-clip" (click)="copyAddress(address)">Copiar</button>
   </div>
 </div>

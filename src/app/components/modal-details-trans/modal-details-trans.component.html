@@ -1,0 +1,47 @@
+<div class="modal" [hidden]="!isOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Transações</h2>
+      <span class="close" (click)="close()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <table class="table-transaction">
+        <tr>
+          <th>Nonce</th>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>Amount</th>
+          <td>-0 RC</td>
+        </tr>
+        <tr>
+          <th>Gas Limit (units)</th>
+          <td>2000000</td>
+        </tr>
+        <tr>
+          <th>Gas Used (units)</th>
+          <td>34739</td>
+        </tr>
+        <tr>
+          <th>Base Fee (GWEI)</th>
+          <td>0.242066743</td>
+        </tr>
+        <tr>
+          <th>Priority Fee (GWEI)</th>
+          <td>2.5</td>
+        </tr>
+        <tr>
+          <th>Total Gas Fee</th>
+          <td>0.000095RC</td>
+        </tr>
+        <tr>
+          <th>Max Fee Per Gas</th>
+          <td>0.000000003RC</td>
+        </tr>
+        <tr>
+          <th>Total</th>
+          <td>0.00009526RC</td>
+        </tr>
+      </table>
+    </div>
+</div>

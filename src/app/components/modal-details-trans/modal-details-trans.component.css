@@ -1,0 +1,15 @@
+@import "../modal-profile/modal-profile.component.css";
+.table-transaction{
+  font-size: 1.6rem;
+}
+.table-transaction th{
+  text-align: start;
+  font-weight: normal;
+}
+.table-transaction td{
+  text-align: end;
+}
+.table-transaction tr:last-of-type th{
+  font-weight: bold;
+}
+

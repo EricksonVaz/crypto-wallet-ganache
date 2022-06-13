@@ -1,8 +1,13 @@
 <app-header (openModalProfile)="openModalProfile()"></app-header>
 <main class="main-content">
-  <app-accounts-container></app-accounts-container>
-  <app-account-details></app-account-details>
-  <app-account-transactions></app-account-transactions>
+  <app-accounts-container (openModalAddAccount)="openModalAddAccount()"></app-accounts-container>
+  <app-account-details (openModalEditAccount)="openModalEditAccount()" (openModalGetKey)="openModalGetKey()" (openModalTransfer)="openModalTransfer()"></app-account-details>
+  <app-account-transactions (openTransDetail)="openModalTransDetail()"></app-account-transactions>
 </main>
 <app-backdrop-modal [isOpen]="openBackdrop"></app-backdrop-modal>
 <app-modal-profile [isOpen]="openProfile" (closeModal)="closeModalProfile()"></app-modal-profile>
+<app-modal-add-account [isOpen]="openAddAccount" (closeModal)="closeModalAddAccount()"></app-modal-add-account>
+<app-modal-edit-account [isOpen]="openEditAccount" (closeModal)="closeModalEditAccount()"></app-modal-edit-account>
+<app-modal-details-trans [isOpen]="openTransDetail" (closeModal)="closeModalTransDetail()"></app-modal-details-trans>
+<app-modal-get-private-key [isOpen]="getPrivateKey" (closeModal)="closeModalPrivateKey()"></app-modal-get-private-key>
+<app-modal-transfer [isOpen]="openTrans" (closeModal)="closeModalTransfer()"></app-modal-transfer>

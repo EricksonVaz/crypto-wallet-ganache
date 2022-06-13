@@ -1,0 +1,23 @@
+<div class="modal" [hidden]="!isOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Transferir riftcoin</h2>
+      <span class="close" (click)="close()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <form class="form-container form-update=profile">
+        <div class="form-group">
+          <label for="to">Endereço de destino</label>
+          <input type="text" class="form-control" id="to" name="to" placeholder="Degite o endereço de destino">
+          <div class="form-feedback"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Palavra Chave</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Degite um nome para a conta">
+          <div class="form-feedback"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">enviar</button>
+      </form>
+    </div>
+</div>
+

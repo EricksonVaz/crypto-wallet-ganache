@@ -8,6 +8,7 @@
   border-radius: 5px;
   padding: 1rem;
   color: #0F1932;
+  width: 300px;
 }
 .modal-header{
   display: flex;
@@ -30,4 +31,9 @@
 }
 .form-control::placeholder{
   color: #0F1932;
+}
+@media all and (max-width:330px) {
+  .modal{
+    width: 95%;
+  }
 }

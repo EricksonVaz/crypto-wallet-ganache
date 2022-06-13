@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-account-transactions',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-transactions.component.css']
 })
 export class AccountTransactionsComponent implements OnInit {
-   arr = [1,2,3,4,5,6,7];
+  @Output() openTransDetail = new EventEmitter();
+  arr = [1,2,3,4,5,6,7];
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openDetails(){
+    this.openTransDetail.emit();
   }
 
 }
