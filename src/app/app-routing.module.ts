@@ -10,10 +10,10 @@ import { UserNotLoggedGuard } from './utils/guards/user-not-logged.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:'panel',pathMatch:'full'},
-  {path:'panel',component:PanelComponent},//,canActivate:[UserLoggedGuard]},
-  {path:'login',component:LoginComponent},//canActivate:[UserNotLoggedGuard]},
-  {path:'signup',component:SignupComponent},//canActivate:[UserNotLoggedGuard]},
-  {path:'forgot',component:ForgotPasswordComponent},//canActivate:[UserNotLoggedGuard]},
+  {path:'panel',component:PanelComponent,canActivate:[UserLoggedGuard]},
+  {path:'login',component:LoginComponent, canActivate:[UserNotLoggedGuard]},
+  {path:'signup',component:SignupComponent, canActivate:[UserNotLoggedGuard]},
+  {path:'forgot',component:ForgotPasswordComponent, canActivate:[UserNotLoggedGuard]},
   {path:'**',component:NotFoundComponent}
 ];
 

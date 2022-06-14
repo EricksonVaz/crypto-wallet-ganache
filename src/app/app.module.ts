@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { provideFirebaseApp, initializeApp } from '@angular/fire/compat/';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +27,7 @@ import { ModalTransferComponent } from './components/modal-transfer/modal-transf
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from "@angular/fire/auth";
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { provideAuth,getAuth } from "@angular/fire/auth";
     ModalEditAccountComponent,
     ModalDetailsTransComponent,
     ModalGetPrivateKeyComponent,
-    ModalTransferComponent
+    ModalTransferComponent,
+    LoaderComponent
   ],
   imports: [
     //AngularFireModule.initializeApp(environment.firebase),

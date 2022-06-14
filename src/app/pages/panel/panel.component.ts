@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-panel',
@@ -15,13 +14,9 @@ export class PanelComponent implements OnInit {
   getPrivateKey:boolean = false;
   openTrans:boolean = false;
 
-  constructor(private auth:Auth) { }
+  constructor() { }
 
   ngOnInit(): void {
-    //const auth = getAuth();
-    const user = this.auth.currentUser
-
-    console.log("user",user);
   }
 
   openModalProfile(){
