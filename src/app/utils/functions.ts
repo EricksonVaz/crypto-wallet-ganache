@@ -1,6 +1,8 @@
 import User from "../models/user";
 import IFormError from "./interfaces/iformError";
 
+import * as shajs from 'sha.js';
+
 export function addFormFeedback(form:HTMLFormElement,errorsFeedback:IFormError[]){
   errorsFeedback.forEach(error=>{
     let elementControl = form.querySelector(`[name="${error.formControl}"]`);
@@ -38,4 +40,12 @@ export function checkUserLoggedState(cb:Function){
       clearInterval(checkUserLogged);
     }
   },1000);
+}
+
+export function generateHash(value:string){
+  return shajs('sha256').update(value).digest('base64')
+}
+
+export function verifyHash(valueHashed:string,value:string){
+  return valueHashed === shajs('sha256').update(value).digest('base64')
 }

@@ -8,7 +8,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class AccountTransactionsComponent implements OnInit {
   @Output() openTransDetail = new EventEmitter();
   arr = [1,2,3,4,5,6,7];
-  constructor() { }
+  isAccountSlected:Boolean = false;
+  static component:AccountTransactionsComponent;
+
+  constructor() {
+    AccountTransactionsComponent.component = this;
+  }
 
   ngOnInit(): void {
   }

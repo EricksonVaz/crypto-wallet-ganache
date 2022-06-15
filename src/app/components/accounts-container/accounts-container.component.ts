@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {Clipboard} from '@angular/cdk/clipboard';
+import IAccount from 'src/app/utils/interfaces/iAccount';
+import Account from 'src/app/models/account';
 
 @Component({
   selector: 'app-accounts-container',
@@ -8,55 +10,39 @@ import {Clipboard} from '@angular/cdk/clipboard';
 })
 export class AccountsContainerComponent implements OnInit {
   @Output() openModalAddAccount = new EventEmitter();
-  public listAccounts = [
-    {
-      name:"Account 1",
-      address:"0x4rt...itre",
-    },
-    {
-      name:"Account 2",
-      address:"0x4rt...itre"
-    },
-    {
-      name:"Account 3",
-      address:"0x4rt...itre"
-    },
-    {
-      name:"Account 4",
-      address:"0x4rt...itre"
-    },
-    {
-      name:"Account 5",
-      address:"0x4rt...itre"
-    },
-    {
-      name:"Account 6",
-      address:"0x4rt...itre"
-    },
-    {
-      name:"Account 7",
-      address:"0x4rt...itre"
-    }
-  ]
-  constructor(private clipBoard:Clipboard) { }
-
-  ngOnInit(): void {
+  @Output("accountSelected") accountSelected = new EventEmitter();
+  public listAccounts:IAccount[] = [];
+  static accountComponent:AccountsContainerComponent;
+  constructor(private clipBoard:Clipboard) {
+    AccountsContainerComponent.accountComponent = this;
   }
 
-  selectAccount(cardItem:HTMLDivElement){
+  ngOnInit(): void {
+    this.updateListAccounts();
+  }
+
+  selectAccount(cardItem:HTMLDivElement,account:IAccount){
     let pararentEl = cardItem.closest(".account-container");
     let currentElementSelected = pararentEl?.querySelector(".select");
     if(currentElementSelected)currentElementSelected.classList.remove("select");
 
     cardItem.classList.add("select");
+
+    this.accountSelected.emit(account);
   }
 
   openModalAddNewAccount(){
     this.openModalAddAccount.emit();
   }
 
-  copyAddress(divElement:HTMLSpanElement){
-    this.clipBoard.copy(divElement?.textContent||"");
+  copyAddress(value:string){
+    this.clipBoard.copy(value||"");
+  }
+
+  updateListAccounts(){
+    Account.listAll().then(resp=>{
+      this.listAccounts = resp;
+    });
   }
 
 }

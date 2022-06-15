@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, getAuth } from "@angular/fire/auth";
 import { Router } from '@angular/router';
-import * as passwordHash  from "password-hash";
+import Web3 from 'web3';
+import Web3Obj from './models/web3Obj';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,9 @@ export class AppComponent implements OnInit {
   title = 'crypto-wallet-ganache';
 
   constructor(private auth:Auth,private router:Router){
-    console.log("hash",passwordHash.generate("password hash",{
-      algorithm:"sha1",
-      saltLength:6,
-      iterations:3
-    }))
+    new Web3Obj().initWeb3().then((web3)=>{
+      console.log(web3.eth.accounts.privateKeyToAccount("4f61674ce217ebbcac38e55b435bbe97475f710822f5b0e415615230fac747c1"))
+    });
   }
   ngOnInit(): void {
     /* this.auth = getAuth();

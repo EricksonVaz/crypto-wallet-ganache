@@ -5,10 +5,10 @@
       <span class="close" (click)="close()">&times;</span>
     </div>
     <div class="modal-body">
-      <form class="form-container form-update=profile">
+      <form #f="ngForm" #formEditAccount class="form-container form-update=profile" (ngSubmit)="submit(f,formEditAccount)">
         <div class="form-group">
-          <label for="name">Nome</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Degite um nome para a conta">
+          <label for="name">Novo Nome</label>
+          <input type="text" ngModel class="form-control" id="name" name="name" placeholder="Degite um nome para a conta">
           <div class="form-feedback"></div>
         </div>
         <button type="submit" class="btn btn-primary">Editar</button>

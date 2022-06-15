@@ -5,6 +5,9 @@
   padding: 1rem;
   margin-top: 3.5rem;
 }
+.not-selected{
+  font-size: 2rem;
+}
 .info-amount{
   display: flex;
   flex-direction: column;
@@ -26,9 +29,12 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.account-name{
+.account-name,.btn-action-container{
   display: flex;
   align-items: center;
+}
+.btn-action-container{
+  flex-grow: 1;
 }
 .btn-edit{
   background-color: transparent;

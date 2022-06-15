@@ -5,16 +5,16 @@
       <span class="close" (click)="close()">&times;</span>
     </div>
     <div class="modal-body">
-      <form class="form-container form-update=profile">
+      <form #f="ngForm" #formGetPrimaryKey class="form-container form-update=profile" (ngSubmit)="submit(f,formGetPrimaryKey)">
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Degite seu password">
+          <input type="password" ngModel class="form-control" id="password" name="password" placeholder="Degite seu password">
           <div class="form-feedback"></div>
         </div>
         <button type="submit" class="btn btn-primary">Obter</button>
       </form>
-      <div class="primary-key-container">
-          2e688e7a5f1625dd837450b1720848936379bb37999fc7c72337142347f89da5
+      <div class="primary-key-container" *ngIf="showPrivateKey">
+          {{privateKey.substring(2)}}
       </div>
     </div>
 </div>

@@ -1,10 +1,11 @@
 <div class="account-container">
   <div class="account-card" (click)="openModalAddNewAccount()">
       <span>&plus;</span>
+      <span class="label-legend">Adicionar Nova Conta</span>
   </div>
-  <div class="account-card" *ngFor="let acount of listAccounts;index as i" #cardItem (click)="selectAccount(cardItem)">
-      <span class="label-name-account">{{acount.name}}</span>
-      <span class="label-address" #address>{{acount.address}}</span>
-      <button type="button" class="btn btn-clip" (click)="copyAddress(address)">Copiar</button>
+  <div class="account-card" *ngFor="let account of listAccounts" #cardItem (click)="selectAccount(cardItem,account)">
+      <span class="label-name-account">{{account.name}}</span>
+      <span class="label-address">{{(account.public_key || "") | formatPk}}</span>
+      <button type="button" class="btn btn-clip" (click)="copyAddress(account.public_key || '')">Copiar</button>
   </div>
 </div>

@@ -3,7 +3,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  max-height: 245px;
+  height: 245px;
   overflow-y: auto;
 }
 .account-card{
@@ -19,6 +19,9 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+}
+.label-legend{
+  font-size: 1.7rem;
 }
 .account-card.select{
   border-color: #F7931A;

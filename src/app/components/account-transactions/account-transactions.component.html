@@ -1,6 +1,6 @@
 <div class="transaction-container">
   <h3 class="label-title">Transações</h3>
-  <div class="transactions">
+  <div class="transactions" *ngIf="isAccountSlected">
     <div class="card-transaction" *ngFor="let i of arr">
       <div class="transaction-amount">
         <span class="label-amount">Valor</span>
@@ -25,4 +25,5 @@
       <button type="button" class="btn btn-more-info" (click)="openDetails()">Detalhes</button>
     </div>
   </div>
+  <div class="transactions no-trans-label"*ngIf="!isAccountSlected">Selecione uma conta para ver as transações</div>
 </div>

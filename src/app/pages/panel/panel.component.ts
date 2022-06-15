@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountDetailsComponent } from 'src/app/components/account-details/account-details.component';
+import IAccount from 'src/app/utils/interfaces/iAccount';
 
 @Component({
   selector: 'app-panel',
@@ -17,6 +19,10 @@ export class PanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  accountSelected(account:IAccount){
+    AccountDetailsComponent.component.showAccountDetail(account);
   }
 
   openModalProfile(){

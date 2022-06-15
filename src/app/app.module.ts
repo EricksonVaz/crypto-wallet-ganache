@@ -28,6 +28,7 @@ import { environment } from 'src/environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from "@angular/fire/auth";
 import { LoaderComponent } from './components/loader/loader.component';
+import { FormatPkPipe } from './utils/pipes/format-pk.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ModalDetailsTransComponent,
     ModalGetPrivateKeyComponent,
     ModalTransferComponent,
-    LoaderComponent
+    LoaderComponent,
+    FormatPkPipe
   ],
   imports: [
     //AngularFireModule.initializeApp(environment.firebase),

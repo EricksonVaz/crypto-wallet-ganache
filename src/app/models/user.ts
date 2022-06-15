@@ -1,10 +1,10 @@
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword,getAuth,signOut } from "@angular/fire/auth";
-import { getDatabase, ref, set } from "@angular/fire/database";
+import { child, get, getDatabase, ref, set } from "@angular/fire/database";
 import { sendPasswordResetEmail } from "@firebase/auth";
 import EUserAction from "../utils/enums/EUserActions";
+import { generateHash, verifyHash } from "../utils/functions";
 import IFormError from "../utils/interfaces/iformError";
 import IUser from "../utils/interfaces/iuser";
-import * as SHA256  from "crypto-js/sha256";
 
 export default class User{
   private uid:string = "";
@@ -146,7 +146,7 @@ export default class User{
     const db = getDatabase();
     set(ref(db, 'users/' + this.uid), {
       email: this.email,
-      password : SHA256(this.password)
+      password : generateHash(this.password)
     });
 
   }
@@ -203,6 +203,31 @@ export default class User{
 
     if (user) return true;
     return false;
+  }
+
+  static userLogged(){
+    return getAuth().currentUser
+  }
+
+  static async getUserPassword():Promise<string>{
+    let dbRef = ref(getDatabase());
+    let userUid = User.userLogged()?.uid;
+
+    return get(child(dbRef, `users/${userUid}`))
+    .then((snapshot) => {
+      if(snapshot.exists()){
+        return snapshot.val()["password"] || "";
+      }
+      return "";
+    }).catch((error) => {
+      console.log("error search accounts",error)
+      return "";
+    });
+  }
+
+  static async validatePassword(password:string){
+    let passwordHash = await User.getUserPassword();
+    return verifyHash(passwordHash,password);
   }
 
   private checkFormData(): boolean{

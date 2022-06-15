@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["crypto"],
+            "allowedCommonJsDependencies": ["crypto","url","stream-browserify","crypto-browserify","assert","stream-http","https-browserify","os-browserify"],
             "outputPath": "dist/crypto-wallet-ganache",
             "index": "src/index.html",
             "main": "src/main.ts",
