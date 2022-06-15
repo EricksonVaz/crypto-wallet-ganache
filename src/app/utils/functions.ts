@@ -1,3 +1,4 @@
+import User from "../models/user";
 import IFormError from "./interfaces/iformError";
 
 export function addFormFeedback(form:HTMLFormElement,errorsFeedback:IFormError[]){
@@ -9,7 +10,7 @@ export function addFormFeedback(form:HTMLFormElement,errorsFeedback:IFormError[]
       elementFeedback.innerHTML = error.errorFeedback;
       setTimeout(()=>{
         elementFeedback!.innerHTML = "";
-      },2000)
+      },5000)
     }
   });
 }
@@ -20,4 +21,21 @@ export function openLoader(){
 
 export function closeLoader(){
   document.documentElement.querySelector(".container-loader")?.classList.add("d-none");
+}
+
+export function checkUserLoggedState(cb:Function){
+  openLoader();
+  let timeOut = 0;
+  let checkUserLogged = setInterval(()=>{
+    timeOut++;
+    if(User.isLogged()){
+      cb();
+      clearInterval(checkUserLogged);
+      closeLoader();
+    }
+    if(timeOut==3){
+      closeLoader();
+      clearInterval(checkUserLogged);
+    }
+  },1000);
 }

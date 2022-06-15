@@ -1,9 +1,13 @@
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword,getAuth,signOut } from "@angular/fire/auth";
+import { getDatabase, ref, set } from "@angular/fire/database";
+import { sendPasswordResetEmail } from "@firebase/auth";
 import EUserAction from "../utils/enums/EUserActions";
 import IFormError from "../utils/interfaces/iformError";
 import IUser from "../utils/interfaces/iuser";
+import * as SHA256  from "crypto-js/sha256";
 
 export default class User{
+  private uid:string = "";
   private email:string = "";
   private password:string = "";
   private confirm:string = "";
@@ -17,7 +21,12 @@ export default class User{
 
     if(this.checkFormData()){
       this.email = formData.email;
-      this.password = formData.password;
+
+      if(
+        this.action===EUserAction.login ||
+        this.action===EUserAction.signup
+      )
+      this.password = formData.password!;
 
       if(this.action===EUserAction.signup) this.confirm = formData.confirm!
 
@@ -39,7 +48,11 @@ export default class User{
         const user = userCredential.user;
         // ...
         console.log("userCredential(signUp)",user);
-        if(user) resolve(user);
+        if(user){
+          this.uid = user.uid;
+          this.registerUser();
+          resolve(user);
+        }
         else reject(
           {
             formControl: "email",
@@ -68,7 +81,9 @@ export default class User{
         // Signed in
         const user = userCredential.user;
         // ...
-        if(user) resolve(user);
+        if(user){
+          resolve(user);
+        }
         else reject(
           {
             formControl: "email",
@@ -80,8 +95,11 @@ export default class User{
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode,errorMessage);
-        let newError = (errorCode=="auth/user-not-found"?"Utilizador não registrado":errorCode)
+        console.log(errorCode,errorMessage);//auth/wrong-password
+        let newError = errorCode
+        if(errorCode=="auth/user-not-found") newError = "Utilizador não registrado";
+        else if(errorCode=="auth/wrong-password") newError = "Email ou password incorecto";
+
         reject(
           {
             formControl: "email",
@@ -91,6 +109,25 @@ export default class User{
         );
       });
     });
+  }
+
+  reset(){
+    return new Promise((resolve,reject)=>{
+      sendPasswordResetEmail(this.auth,this.email)
+      .then(() => {
+        // Password reset email sent!
+        resolve("email send");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        reject({
+          formControl: "email",
+          errorFeedback: errorMessage,
+          currentValue: this.email
+        });
+      });
+    })
   }
 
   static logout(cb:Function,errCb?:Function){
@@ -105,6 +142,14 @@ export default class User{
     return this._formError;
   }
 
+  private registerUser(){
+    const db = getDatabase();
+    set(ref(db, 'users/' + this.uid), {
+      email: this.email,
+      password : SHA256(this.password)
+    });
+
+  }
   private validate(){
     if(!this.email){
       this._formError.push({
@@ -120,12 +165,17 @@ export default class User{
       });
     }
 
-    if(!this.password){
-      this._formError.push({
-        formControl: "password",
-        errorFeedback: "password é obrigatorio",
-        currentValue: this.password
-      });
+    if(
+        this.action===EUserAction.login ||
+        this.action===EUserAction.signup
+    ){
+      if(!this.password){
+        this._formError.push({
+          formControl: "password",
+          errorFeedback: "password é obrigatorio",
+          currentValue: this.password
+        });
+      }
     }
 
     if(this.action==EUserAction.signup){
@@ -164,6 +214,11 @@ export default class User{
     }else if(
       this.action===EUserAction.login &&
       ("email" in this.formData && "password" in this.formData)
+    ){
+      return true;
+    }else if(
+      this.action===EUserAction.reset &&
+      ("email" in this.formData)
     ){
       return true;
     }

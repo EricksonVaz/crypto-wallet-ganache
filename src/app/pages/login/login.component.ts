@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import User from 'src/app/models/user';
+import { checkUserLoggedState } from 'src/app/utils/functions';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,9 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    console.log("User.isLogged()",User.isLogged())
-    if(User.isLogged()) this.router.navigateByUrl("panel");
+    checkUserLoggedState(()=>{
+      this.router.navigateByUrl("panel");
+    });
   }
 
 }

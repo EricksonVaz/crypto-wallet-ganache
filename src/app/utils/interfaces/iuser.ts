@@ -1,5 +1,5 @@
 export default interface IUser{
   email:string;
-  password:string;
+  password?:string;
   confirm?:string;
 }

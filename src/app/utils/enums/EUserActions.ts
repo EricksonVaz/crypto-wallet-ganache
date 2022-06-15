@@ -1,6 +1,7 @@
 enum EUserAction{
   login,
-  signup
+  signup,
+  reset
 }
 
 export default EUserAction;

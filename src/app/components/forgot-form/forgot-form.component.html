@@ -1,11 +1,11 @@
-<form class="form-container form-forgot">
+<form #f="ngForm" #formForgot class="form-container form-forgot" (ngSubmit)="submit(f,formForgot)">
     <div class="form-forgot-heading">
       <img src="./../../../assets/logoRift.png" alt="">
       <h2 class="form-title">Enviar email de recuperção</h2>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Degite seu email">
+      <input type="email" ngModel class="form-control" id="email" name="email" placeholder="Degite seu email">
       <div class="form-feedback"></div>
     </div>
     <div class="action-link">

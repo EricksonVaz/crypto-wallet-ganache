@@ -60,7 +60,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     AppRoutingModule,
     FormsModule,
     provideFirebaseApp(()=>initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]
