@@ -5,15 +5,20 @@
       <span class="close" (click)="close()">&times;</span>
     </div>
     <div class="modal-body">
-      <form class="form-container form-update=profile">
+      <form #f="ngForm" #formTransfer class="form-container form-update=profile" (ngSubmit)="submit(f,formTransfer)">
+        <div class="form-group">
+          <label for="amount">Valor</label>
+          <input type="text" ngModel class="form-control" id="amount" name="amount" placeholder="Degite um valor">
+          <div class="form-feedback"></div>
+        </div>
         <div class="form-group">
           <label for="to">Endereço de destino</label>
-          <input type="text" class="form-control" id="to" name="to" placeholder="Degite o endereço de destino">
+          <input type="text" ngModel class="form-control" id="to" name="to" placeholder="Degite o endereço de destino">
           <div class="form-feedback"></div>
         </div>
         <div class="form-group">
           <label for="password">Palavra Chave</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Degite um nome para a conta">
+          <input type="password" ngModel class="form-control" id="password" name="password" placeholder="Degite um nome para a conta">
           <div class="form-feedback"></div>
         </div>
         <button type="submit" class="btn btn-primary">enviar</button>

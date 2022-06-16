@@ -1,4 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import Transfer from 'src/app/models/transfer';
+import ITransfer from 'src/app/utils/interfaces/iTransfer';
+import { AccountDetailsComponent } from '../account-details/account-details.component';
 
 @Component({
   selector: 'app-account-transactions',
@@ -7,7 +10,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AccountTransactionsComponent implements OnInit {
   @Output() openTransDetail = new EventEmitter();
-  arr = [1,2,3,4,5,6,7];
+  listTransactions:ITransfer[] = [];
   isAccountSlected:Boolean = false;
   static component:AccountTransactionsComponent;
 
@@ -20,6 +23,14 @@ export class AccountTransactionsComponent implements OnInit {
 
   openDetails(){
     this.openTransDetail.emit();
+  }
+
+  updateListtransactions(){
+    console.log("private key",AccountDetailsComponent.component.accountSelected?.private_key!)
+    Transfer.listAll(AccountDetailsComponent.component.accountSelected?.private_key!)
+    .then(transactions=>{
+      this.listTransactions = transactions;
+    })
   }
 
 }

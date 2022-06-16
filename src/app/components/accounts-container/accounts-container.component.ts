@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {Clipboard} from '@angular/cdk/clipboard';
 import IAccount from 'src/app/utils/interfaces/iAccount';
 import Account from 'src/app/models/account';
+import { AccountTransactionsComponent } from '../account-transactions/account-transactions.component';
 
 @Component({
   selector: 'app-accounts-container',
@@ -29,6 +30,8 @@ export class AccountsContainerComponent implements OnInit {
     cardItem.classList.add("select");
 
     this.accountSelected.emit(account);
+    AccountTransactionsComponent.component.isAccountSlected = true;
+    AccountTransactionsComponent.component.updateListtransactions();
   }
 
   openModalAddNewAccount(){

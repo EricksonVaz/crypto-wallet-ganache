@@ -12,7 +12,7 @@ export default class Account{
   private public_key?:string;
   private _formError:IFormError[] = [];
   private _db?:Database;
-  private static readonly WEIAMOUNT = 1000000000000000000;
+  static readonly WEIAMOUNT = 1000000000000000000;
 
   constructor(private formData:IAccount,private action=EAccountAction.create){
     this._db = getDatabase();

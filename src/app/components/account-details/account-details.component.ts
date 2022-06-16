@@ -68,4 +68,8 @@ export class AccountDetailsComponent implements OnInit {
     });
   }
 
+  nextFeature(){
+    swal("Esta funcionalidade esta a ser trabalhada")
+  }
+
 }

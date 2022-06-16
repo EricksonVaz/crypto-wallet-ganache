@@ -1,28 +1,28 @@
 <div class="transaction-container">
   <h3 class="label-title">Transações</h3>
   <div class="transactions" *ngIf="isAccountSlected">
-    <div class="card-transaction" *ngFor="let i of arr">
+    <div class="card-transaction" *ngFor="let transaction of listTransactions">
       <div class="transaction-amount">
         <span class="label-amount">Valor</span>
-        <span class="amount">+13 RC</span>
+        <span class="amount">-{{transaction.amount}} RC</span>
       </div>
       <div class="transaction-info">
         <div class="from-to">
           <div class="from">
             <span class="label-from-to">De: </span>
-            <span class="from-to-value">0x5e3...cc8C</span>
+            <span class="from-to-value">{{transaction.from! | formatPk}}</span>
           </div>
           <span class="label">>>></span>
           <div class="to">
             <span class="label-from-to">Para: </span>
-            <span class="from-to-value">0x5e3...cc8C</span>
+            <span class="from-to-value">{{transaction.to! | formatPk}}</span>
           </div>
         </div>
         <div class="transaction-date">
-          <span class="date">01/01/2019</span>
+          <span class="date">{{transaction.datetime}}</span>
         </div>
       </div>
-      <button type="button" class="btn btn-more-info" (click)="openDetails()">Detalhes</button>
+      <!--<button type="button" class="btn btn-more-info" (click)="openDetails()">Detalhes</button>-->
     </div>
   </div>
   <div class="transactions no-trans-label"*ngIf="!isAccountSlected">Selecione uma conta para ver as transações</div>
