@@ -1,6 +1,6 @@
 <div class="transaction-container">
   <h3 class="label-title">Transações</h3>
-  <div class="transactions" *ngIf="isAccountSlected">
+  <div class="transactions" *ngIf="isAccountSlected && listTransactions.length">
     <div class="card-transaction" *ngFor="let transaction of listTransactions">
       <div class="transaction-amount">
         <span class="label-amount">Valor</span>
@@ -25,5 +25,6 @@
       <!--<button type="button" class="btn btn-more-info" (click)="openDetails()">Detalhes</button>-->
     </div>
   </div>
+  <div class="transactions no-trans-label" *ngIf="isAccountSlected && listTransactions.length<=0">Nenhuma transação feita</div>
   <div class="transactions no-trans-label"*ngIf="!isAccountSlected">Selecione uma conta para ver as transações</div>
 </div>

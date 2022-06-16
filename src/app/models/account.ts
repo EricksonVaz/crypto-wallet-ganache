@@ -79,7 +79,7 @@ export default class Account{
               public_key: accountInfo.address,
               private_key : accountInfo.privateKey!
             }
-            set(ref(this._db!, 'users/' + uidUser + '/accounts/'+accountInfo.privateKey),
+            update(ref(this._db!, 'users/' + uidUser + '/accounts/'+accountInfo.privateKey),
             newAccountInfo);
             resolve(newAccountInfo);
           }else{

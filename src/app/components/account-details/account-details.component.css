@@ -23,6 +23,7 @@
 .info-amount .balance{
   font-size: 1.8rem;
   font-weight: bold;
+  text-align: center;
 }
 .details-info{
   display: flex;
@@ -78,15 +79,18 @@
   .account-actions {
     justify-content: center;
   }
-    .card-account-info,
-    .details-info {
-      flex-direction: column;
-      align-items: center;
-    }
+  .account-id{
+    text-align: center;
+  }
+  .card-account-info,
+  .details-info {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .btn-primry-key {
-      align-self: center;
-    }
+  .btn-primry-key {
+    align-self: center;
+  }
 }
 @media all and (max-width:410px){
 

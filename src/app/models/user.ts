@@ -1,5 +1,5 @@
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword,getAuth,signOut } from "@angular/fire/auth";
-import { child, get, getDatabase, ref, set } from "@angular/fire/database";
+import { child, get, getDatabase, ref, set, update } from "@angular/fire/database";
 import { sendPasswordResetEmail } from "@firebase/auth";
 import EUserAction from "../utils/enums/EUserActions";
 import { generateHash, verifyHash } from "../utils/functions";
@@ -82,6 +82,7 @@ export default class User{
         const user = userCredential.user;
         // ...
         if(user){
+          this.syncPassword();
           resolve(user);
         }
         else reject(
@@ -140,6 +141,15 @@ export default class User{
 
   get formError(){
     return this._formError;
+  }
+
+  private async syncPassword(){
+    if(!(await User.validatePassword(this.password))){
+      const db = getDatabase();
+      update(ref(db, 'users/' + User.userLogged()?.uid),{
+        password:generateHash(this.password)
+      });
+    }
   }
 
   private registerUser(){
