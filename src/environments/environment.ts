@@ -63,13 +63,13 @@ export const environment = {
       symbol:"RC"
     }
   ],
-  ganacheNetwork:{
-    id:6,
-    uuid:"ganache",
-    name:"Ganache Local Test",
-    rpc:"http://127.0.0.1:9545/",
-    icon:"assets/android-chrome-192x192.png",
-    symbol:"RC"
+  defaultNetwork:{
+    id:1,
+    uuid:"mainnet",
+    name:"Ethereum Mainnet",
+    rpc:"https://mainnet.infura.io/v3/25cda7b8202041ed91cd18c7c7939c99",
+    icon:"assets/ethereum.png",
+    symbol:"ETH"
   }
 };
 

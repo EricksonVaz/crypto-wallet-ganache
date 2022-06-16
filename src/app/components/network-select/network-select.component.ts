@@ -11,7 +11,7 @@ import { AccountTransactionsComponent } from '../account-transactions/account-tr
 })
 export class NetworkSelectComponent implements OnInit {
   listNetworks = environment.networks;
-  ganacheNetwork = environment.ganacheNetwork;
+  defaultNetwork = environment.defaultNetwork;
   constructor() { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class NetworkSelectComponent implements OnInit {
 
   setNetwork(select:HTMLSelectElement){
     let networkFind = this.listNetworks.find(network=>network.id==(+select.value));
-    let networkToUse = (networkFind || this.ganacheNetwork)!
+    let networkToUse = (networkFind || this.defaultNetwork)!
     let componentDetail = AccountDetailsComponent.component;
     let componentTransaction = AccountTransactionsComponent.component;
 

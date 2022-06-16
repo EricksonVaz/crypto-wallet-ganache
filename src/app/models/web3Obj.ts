@@ -6,7 +6,7 @@ import { Contract } from "web3-eth-contract";
 export default class Web3Obj{
     static web3?:Web3;
     static accounts:string[] = [];
-    static networkInfo = environment.ganacheNetwork;
+    static networkInfo = environment.defaultNetwork;
 
     initWeb3():Promise<Web3>{
         return new Promise(async (resolve, reject) => {
