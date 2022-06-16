@@ -3,7 +3,7 @@ import Profile from 'src/app/models/profile';
 import User from 'src/app/models/user';
 import { addFormFeedback, closeLoader, openLoader } from 'src/app/utils/functions';
 import IProfile from 'src/app/utils/interfaces/iProfile';
-import swal from 'sweetalert';
+import swal from 'src/app/utils/sweetalert';
 
 @Component({
   selector: 'app-modal-profile',

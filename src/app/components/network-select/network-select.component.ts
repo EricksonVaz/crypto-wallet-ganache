@@ -28,8 +28,10 @@ export class NetworkSelectComponent implements OnInit {
 
     Web3Obj.networkInfo = networkToUse;
 
-    componentDetail.showAccountDetail(componentDetail.accountSelected!);
-    componentTransaction.updateListtransactions();
+    if(componentDetail.accountSelected){
+      componentDetail.showAccountDetail(componentDetail.accountSelected!);
+      componentTransaction.updateListtransactions();
+    }
   }
 
 }

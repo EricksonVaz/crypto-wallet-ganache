@@ -5,7 +5,7 @@ import EUserAction from 'src/app/utils/enums/EUserActions';
 import { addFormFeedback, closeLoader, openLoader } from 'src/app/utils/functions';
 import IFormError from 'src/app/utils/interfaces/iformError';
 import IUser from 'src/app/utils/interfaces/iuser';
-import swal from 'sweetalert';
+import swal from 'src/app/utils/sweetalert';
 
 
 @Component({

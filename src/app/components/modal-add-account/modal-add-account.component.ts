@@ -3,7 +3,7 @@ import Account from 'src/app/models/account';
 import { addFormFeedback, closeLoader, openLoader } from 'src/app/utils/functions';
 import IAccount from 'src/app/utils/interfaces/iAccount';
 import IFormError from 'src/app/utils/interfaces/iformError';
-import swal from 'sweetalert';
+import swal from 'src/app/utils/sweetalert';
 import { AccountsContainerComponent } from '../accounts-container/accounts-container.component';
 
 @Component({

@@ -1,5 +1,5 @@
 import { environment } from "src/environments/environment";
-import swal from "sweetalert";
+import swal from 'src/app/utils/sweetalert';
 import Web3 from "web3";
 import { Contract } from "web3-eth-contract";
 

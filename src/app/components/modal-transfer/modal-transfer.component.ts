@@ -3,7 +3,7 @@ import Transfer from 'src/app/models/transfer';
 import { addFormFeedback, closeLoader, openLoader } from 'src/app/utils/functions';
 import IFormError from 'src/app/utils/interfaces/iformError';
 import ITransfer from 'src/app/utils/interfaces/iTransfer';
-import swal from 'sweetalert';
+import swal from 'src/app/utils/sweetalert';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
 import { AccountTransactionsComponent } from '../account-transactions/account-transactions.component';
 

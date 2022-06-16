@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Account from 'src/app/models/account';
 import Web3Obj from 'src/app/models/web3Obj';
 import IAccount from 'src/app/utils/interfaces/iAccount';
-import swal from 'sweetalert';
+import swal from 'src/app/utils/sweetalert';
 import { AccountsContainerComponent } from '../accounts-container/accounts-container.component';
 import { ModalEditAccountComponent } from '../modal-edit-account/modal-edit-account.component';
 
