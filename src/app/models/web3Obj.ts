@@ -1,14 +1,15 @@
+import { environment } from "src/environments/environment";
 import swal from "sweetalert";
 import Web3 from "web3";
 import { Contract } from "web3-eth-contract";
 
 export default class Web3Obj{
-    private readonly ganacheServer = "http://127.0.0.1:9545/";
     static web3?:Web3;
     static accounts:string[] = [];
+    static networkInfo = environment.ganacheNetwork;
 
     initWeb3():Promise<Web3>{
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             // //@ts-expect-error
             // let {ethereum=undefined,web3=undefined} = window;
 
@@ -32,8 +33,13 @@ export default class Web3Obj{
             //         new Web3(web3.currentProvider)
             //     );
             // }
-            console.log("ganache")
-            resolve(new Web3('http://localhost:9545'));
+            try {
+              let web3 = new Web3(Web3Obj.networkInfo.rpc);
+              await web3.eth.net.isListening()
+              resolve(web3);
+            } catch (error) {
+              swal("Error","Não foi possivel conectar a "+Web3Obj.networkInfo.name,"error")
+            }
         });
     }
 

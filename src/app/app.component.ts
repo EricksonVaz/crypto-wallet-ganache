@@ -13,9 +13,6 @@ export class AppComponent implements OnInit {
   title = 'crypto-wallet-ganache';
 
   constructor(private auth:Auth,private router:Router){
-    new Web3Obj().initWeb3().then((web3)=>{
-      console.log(web3.eth.accounts.privateKeyToAccount("4f61674ce217ebbcac38e55b435bbe97475f710822f5b0e415615230fac747c1"))
-    });
   }
   ngOnInit(): void {
     /* this.auth = getAuth();

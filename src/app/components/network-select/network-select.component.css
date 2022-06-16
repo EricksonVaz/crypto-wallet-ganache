@@ -1,0 +1,11 @@
+select{
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border: 1px solid #3E4559;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 2rem;
+}
+option{
+  color: black;
+}

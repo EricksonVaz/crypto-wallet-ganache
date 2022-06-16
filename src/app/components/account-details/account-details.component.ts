@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Account from 'src/app/models/account';
+import Web3Obj from 'src/app/models/web3Obj';
 import IAccount from 'src/app/utils/interfaces/iAccount';
 import swal from 'sweetalert';
 import { AccountsContainerComponent } from '../accounts-container/accounts-container.component';
@@ -18,6 +19,7 @@ export class AccountDetailsComponent implements OnInit {
   static component:AccountDetailsComponent;
   accountSelected?:IAccount;
   balance?:string;
+  networkInfo = Web3Obj.networkInfo;
 
   isAccountSlected:Boolean = false;
 
@@ -46,7 +48,7 @@ export class AccountDetailsComponent implements OnInit {
     this.accountSelected = account;
     this.balance = "0"
     Account.balance(account.public_key!).then(amount=>{
-      console.log("amount",amount)
+      //console.log("amount",amount)
       if(typeof amount==="string") this.balance = amount;
     });
   }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Transfer from 'src/app/models/transfer';
+import Web3Obj from 'src/app/models/web3Obj';
 import ITransfer from 'src/app/utils/interfaces/iTransfer';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
 
@@ -12,6 +13,7 @@ export class AccountTransactionsComponent implements OnInit {
   @Output() openTransDetail = new EventEmitter();
   listTransactions:ITransfer[] = [];
   isAccountSlected:Boolean = false;
+  networkInfo = Web3Obj.networkInfo;
   static component:AccountTransactionsComponent;
 
   constructor() {
@@ -26,7 +28,7 @@ export class AccountTransactionsComponent implements OnInit {
   }
 
   updateListtransactions(){
-    console.log("private key",AccountDetailsComponent.component.accountSelected?.private_key!)
+    //console.log("private key",AccountDetailsComponent.component.accountSelected?.private_key!)
     Transfer.listAll(AccountDetailsComponent.component.accountSelected?.private_key!)
     .then(transactions=>{
       this.listTransactions = transactions;

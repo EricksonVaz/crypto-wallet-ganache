@@ -1,0 +1,4 @@
+<select name="network" id="network" #f (change)="setNetwork(f)">
+  <option value="" disabled selected>Selecione uma rede</option>
+  <option *ngFor="let network of listNetworks" [value]="network.id">{{network.name}}</option>
+</select>

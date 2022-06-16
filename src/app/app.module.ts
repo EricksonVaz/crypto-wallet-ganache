@@ -29,6 +29,7 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from "@angular/fire/auth";
 import { LoaderComponent } from './components/loader/loader.component';
 import { FormatPkPipe } from './utils/pipes/format-pk.pipe';
+import { NetworkSelectComponent } from './components/network-select/network-select.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FormatPkPipe } from './utils/pipes/format-pk.pipe';
     ModalGetPrivateKeyComponent,
     ModalTransferComponent,
     LoaderComponent,
-    FormatPkPipe
+    FormatPkPipe,
+    NetworkSelectComponent
   ],
   imports: [
     //AngularFireModule.initializeApp(environment.firebase),

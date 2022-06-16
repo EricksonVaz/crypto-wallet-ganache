@@ -3,8 +3,7 @@
   <div class="transactions" *ngIf="isAccountSlected && listTransactions.length">
     <div class="card-transaction" *ngFor="let transaction of listTransactions">
       <div class="transaction-amount">
-        <span class="label-amount">Valor</span>
-        <span class="amount">-{{transaction.amount}} RC</span>
+        <span class="amount">-{{transaction.amount}} {{networkInfo.symbol}}</span>
       </div>
       <div class="transaction-info">
         <div class="from-to">

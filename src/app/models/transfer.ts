@@ -85,18 +85,18 @@ export default class Transfer{
 
   saveTransaction(transferObj:ITransfer){
     let uidUser = User.userLogged()?.uid;
-    push(ref(this._db!, 'users/' + uidUser + '/accounts/'+this.private_key+"/transactions"), transferObj);
+    push(ref(this._db!, 'users/' + uidUser + '/accounts/'+this.private_key+'/transactions/'+Web3Obj.networkInfo.uuid), transferObj);
   }
 
   static async listAll(private_key:string){
     let dbRef = ref(getDatabase());
     let userUid = User.userLogged()?.uid;
 
-    return get(child(dbRef, `users/${userUid}/accounts/${private_key}/transactions`))
+    return get(child(dbRef, `users/${userUid}/accounts/${private_key}/transactions/${Web3Obj.networkInfo.uuid}`))
     .then((snapshot) => {
       return Object.values(snapshot.val()) as ITransfer[];
     }).catch((error) => {
-      console.log("error search accounts",error)
+      //console.log("error search accounts",error)
       let arrResp:ITransfer[] = [];
       return arrResp;
     });

@@ -1,5 +1,6 @@
 <app-header (openModalProfile)="openModalProfile()"></app-header>
 <main class="main-content">
+  <app-network-select></app-network-select>
   <app-accounts-container (openModalAddAccount)="openModalAddAccount()" (accountSelected)="accountSelected($event)"></app-accounts-container>
   <app-account-details (openModalEditAccount)="openModalEditAccount()" (openModalGetKey)="openModalGetKey()" (openModalTransfer)="openModalTransfer()"></app-account-details>
   <app-account-transactions (openTransDetail)="openModalTransDetail()"></app-account-transactions>

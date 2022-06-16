@@ -16,7 +16,7 @@ export class UserLoggedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const user = this.auth.currentUser;
 
-      console.log("user logged",user)
+      //console.log("user logged",user)
 
       if (user) return true;
 

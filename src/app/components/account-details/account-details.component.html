@@ -1,7 +1,7 @@
 <div class="card-account-info" *ngIf="isAccountSlected">
     <div class="info-amount">
-        <img src="../../../assets/android-chrome-192x192.png" alt="">
-        <span class="balance">{{balance}} RC</span>
+        <img src="../../../{{networkInfo.icon}}" alt="">
+        <span class="balance">{{balance}} {{networkInfo.symbol}}</span>
     </div>
     <div class="details-info">
         <div class="account-name">
